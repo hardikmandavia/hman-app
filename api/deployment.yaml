@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hman-app-api
+  labels:
+    app: hman-app-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hman-app-api
+  template:
+    metadata:
+      labels:
+        app: hman-app-api
+    spec:
+      containers:
+      - name: hman-app-api
+        image: hardikmandavia/hman-app-api
+        ports:
+        - containerPort: 8080
